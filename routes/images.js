@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const Image = require("../models/Image");
 
+
+router.get("/health", (req, res) => {
+  res.send("Route is working fine.");
+});
 router.get("/images", async (req, res) => {
   try {
     const randomImages = await Image.aggregate().sample(2);
